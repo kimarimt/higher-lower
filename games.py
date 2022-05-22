@@ -31,8 +31,8 @@ def get_games():
     response = requests.get(url=__TOP_GAMES_URL, headers=top_game_headers)
     response.raise_for_status()
 
-    games = {}
+    games = []
     for position, game in enumerate(response.json()['data']):
-        games[game['name']] = position + 1
+        games.append({ game['name']: position })
 
     print(games)
