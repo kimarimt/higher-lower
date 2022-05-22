@@ -33,6 +33,10 @@ def get_games():
 
     games = []
     for position, game in enumerate(response.json()['data']):
-        games.append({ game['name']: position })
+        entry = {
+            'name': game['name'],
+            'position': position
+        }
+        games.append(entry)
 
-    print(games)
+    return games
